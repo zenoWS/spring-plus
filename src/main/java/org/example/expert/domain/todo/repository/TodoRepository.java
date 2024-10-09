@@ -26,6 +26,7 @@ public interface TodoRepository extends JpaRepository<Todo, Long> {
             "AND (:startDate IS NULL OR t.modifiedAt >= :startDate) " +
             "AND (:endDate IS NULL OR t.modifiedAt <= :endDate) " +
             "ORDER BY t.modifiedAt DESC")
+
     Page<Todo> findByWeatherAndModifiedAt(
             @Param("weather") String weather,
             @Param("startDate") LocalDate startDate,
